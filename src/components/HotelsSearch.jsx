@@ -7,17 +7,49 @@ import axios from 'axios';
 export const HotelsSearch = () => {
     const [input, setInput] = useState('');
     const [suggestions, setSuggestions] = useState();
+    const [hideSuggestions, setHideSuggestions] = useState(false);
 
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        const URL = 'https://jsonplaceholder.typicode.com/users';
-        const loadUsers = async () => {
-            const response = await axios.get(URL);
-            setUsers(response.data);
+        const config = {
+            url: 'https://travel-us.save70.com/mv/marvel?f=j&v=v1&lc=us&lc_cc=EN&s=50&where=lon',
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Cookie':
+                    'Apache=LYAmRg-AAABf0BqU1M-2a-I$9U5g; cluster=5; kayak=bXgvm4GVC1Hbc_uA4Kl$; kayak.mc=108$bXgvm4GVC1Hbc_uA4Kl$$AaC2hYac4XKDD3R8uCvv3QySEsOmLHk1eiiM5MwV4zTZNM8mplYTfPRm_jf5fQJ8uKI21N83pagNDlT0bJH-6dgGIQADUQlORzMv1iVlz1PG',
+            },
         };
-        loadUsers();
-    }, []);
+
+        // axios(config)
+        //     .then(function (response) {
+        //         console.log(JSON.stringify(response.data));
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
+
+        const loadUsers = async (input) => {
+            if (!input) return;
+            const response = await axios.get(
+                'https://travel-us.save70.com/mv/marvel?f=j&v=v1&lc=us&lc_cc=EN&s=50&where=' +
+                    input,
+            );
+            setSuggestions(response.data.map((el) => el.displayname));
+        };
+        setHideSuggestions(false);
+
+        loadUsers(input);
+
+        // const URL = 'https://jsonplaceholder.typicode.com/users';
+        // const loadUsers = async () => {
+        //     const response = await axios.get(URL);
+        //     setUsers(response.data);
+        // };
+        // loadUsers();
+    }, [input]);
 
     const handleInputChange = (text) => {
         let matches = [];
@@ -87,12 +119,32 @@ export const HotelsSearch = () => {
             <div className="mb-[50px] text-[34px]">City Hotels Title</div>
 
             <div className="mb-[10px] flex w-full gap-[4px]">
-                <input
-                    className="w-full rounded-[8px] px-[10px] text-black"
-                    onChange={(e) => setInput(e.currentTarget.value)}
-                    value={input}
-                    type={'text'}
-                />{' '}
+                <div className="flex h-[40px] max-h-[40px] w-full items-center justify-start">
+                    <input
+                        className="h-[40px] w-full rounded-[8px] px-[10px] text-black"
+                        onChange={(e) => setInput(e.currentTarget.value)}
+                        value={input}
+                        type={'text'}
+                    />{' '}
+                    {suggestions && !hideSuggestions && (
+                        <div className="absolute z-[2] h-[40px]  translate-y-[100%]  px-[10px] text-black">
+                            {suggestions.map((suggest) => (
+                                <div
+                                    className="h-[40px] max-h-[40px] min-w-[500px] shrink-0 bg-white p-[10px]"
+                                    onClick={() => {
+                                        setInput(suggest);
+                                        setTimeout(
+                                            () => setHideSuggestions(true),
+                                            10,
+                                        );
+                                    }}
+                                >
+                                    {suggest}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
                 <div className="texxt-black rounded-[8px] bg-emerald-200 p-[8px_10px] text-black">
                     Search
                 </div>
