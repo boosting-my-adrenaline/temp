@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CardsPresentation } from './components/CardsPresentation';
+import { Hotels } from './components/Hotels';
+// import { Footer } from './components/Footer';
+import { Main } from './components/Main';
+import { Navbar } from './components/Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export const App = () => {
+    return (
+        <div>
+            <div className="flex w-screen flex-col items-center">
+                <BrowserRouter>
+                    <Navbar />
+                    <div className="w-full max-w-[1400px] shrink-0 bg-sky-100 ">
+                        <Routes>
+                            <Route path="/" element={<Main />} />
+                            <Route
+                                path="city:number"
+                                element={<CardsPresentation />}
+                            />
+                            <Route path="hotel:number" element={<Hotels />} />
+                        </Routes>
+                    </div>
+                    {/* <Footer /> */}
+                </BrowserRouter>
+            </div>
+        </div>
+    );
+};
