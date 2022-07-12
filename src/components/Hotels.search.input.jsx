@@ -3,8 +3,6 @@ export const HotelsSearchInput = ({
     input,
     setInput,
     suggestions,
-    hideSuggestions,
-    setHideSuggestions,
     inputFocus,
     setInputFocus,
 }) => {

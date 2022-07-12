@@ -23,28 +23,6 @@ export const HotelsSearch = ({ inputFocus, setInputFocus }) => {
 
     const [arrivalDate, setArrivalDate] = useState();
     const [departureDate, setDepartureDate] = useState();
-    const [isArrivalOpen, setIsArrivalOpen] = useState(false);
-    const [isDepartureOpen, setIsDepartureOpen] = useState(false);
-
-    const handleArrivalChange = (e) => {
-        setIsArrivalOpen(false);
-        setArrivalDate(e);
-    };
-
-    const handleDepartureChange = (e) => {
-        setIsDepartureOpen(false);
-        setDepartureDate(e);
-    };
-
-    const handleArrivalClick = (e) => {
-        e.preventDefault();
-        setIsArrivalOpen((prev) => !prev);
-    };
-
-    const handleDepartureClick = (e) => {
-        e.preventDefault();
-        setIsDepartureOpen((prev) => !prev);
-    };
 
     const updateDataStates = (values) => {
         values[0] &&
