@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Hotel = ({ hotel }) => {
     return (
-        <div className="flex h-[200px] w-full gap-[20px] rounded-[10px] bg-emerald-200 p-[10px]">
+        <div className="flex h-[200px] w-full gap-[20px] rounded-[10px] bg-[#f2f2f2] p-[10px]">
             <div className="h-full w-full max-w-[180px] rounded-[8px] bg-emerald-900"></div>
             <div className="flex-grow">
                 <div className="mb-[4px] text-[22px] font-semibold">

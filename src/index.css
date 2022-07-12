@@ -1,3 +1,78 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Ultralight.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Thin.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Semibold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Heavy.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('./fonts/SFProDisplay/SFProDisplay-Black.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.multi-locale-days .rmdp-day {
+    width: 39.3px;
+    height: 38.3px;
+}
+
+.custom-calendar.rmdp-wrapper,
+.rmdp-container .custom-calendar.ep-arrow::after {
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
