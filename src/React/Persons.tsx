@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './styles.css';
+import '../styles.css';
 
 export const Persons = () => {
     const [persons, setPersons] = useState([

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import './styles.css';
+import '../styles.css';
 
 export const Input = () => {
     const [isVisible, setIsVisible] = useState(false);

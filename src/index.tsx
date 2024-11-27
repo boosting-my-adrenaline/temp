@@ -1,17 +1,17 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { Persons } from './Persons';
-import { Search } from './Search';
-import { Input } from './Input';
+import { Persons } from './React/Persons';
+import { Search } from './React/Search';
+import { Input } from './React/Input';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
 
 const App = () => {
-    // return <Persons />;
+    return <Persons />;
     // return <Search />;
-    return <Input />;
+    // return <Input />;
 };
 
 root.render(<App />);
